@@ -28,12 +28,12 @@ class term(object):
         clf2 = MultinomialNB(alpha=0.1)
         clf3 = LinearSVC(C=0.1, random_state=random_rate)
         clf4 = LogisticRegression(C=1.0,n_jobs=-1, max_iter=100, class_weight='balanced', random_state=random_rate)
-        clf5 = BernoulliNB(alpha=0.1)
+        clf5 = BernoulliNB(alpha=0.1) #伯努利先验
         clf6 = VotingClassifier(estimators=[('sgd', clf1),
                                             ('mb', clf2),
                                             ('bb', clf3),
                                             ('lf', clf4),
-                                            ('bnb', clf5)], voting='hard')
+                                            ('bnb', clf5)], voting='hard') #聚合模型进行聚合
         clf7 = SGDClassifier(
             alpha=5e-05,
             average=False,
